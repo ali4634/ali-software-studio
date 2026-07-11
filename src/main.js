@@ -227,7 +227,7 @@ function initContactForm() {
       formDataToSend.append('subject', data.subject);
       formDataToSend.append('message', data.message);
 
-      const response = await fetch('https://formsubmit.co/ajax/MuhammedAli46@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/muhammadali46@gmail.com', {
         method: 'POST',
         body: formDataToSend,
         headers: {
