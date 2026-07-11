@@ -191,14 +191,14 @@ function initContactForm() {
 
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(form);
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
-      subject: formData.get('subject') || 'New Inquiry',
+      subject: formData.get('subject') || 'New Inquiry from Ali Software Studio',
       message: formData.get('message')
     };
 
@@ -219,17 +219,44 @@ function initContactForm() {
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
 
-    // Simulate sending (replace with actual API call)
-    setTimeout(() => {
-      // Here you could integrate with an email service
+    try {
+      // Send email using FormSubmit
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', data.name);
+      formDataToSend.append('email', data.email);
+      formDataToSend.append('subject', data.subject);
+      formDataToSend.append('message', data.message);
+
+      const response = await fetch('https://formsubmit.co/ajax/MuhammedAli46@gmail.com', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        showFormMessage(
+          '✓ Thank you! Your message has been sent successfully. I will get back to you shortly.',
+          'success'
+        );
+        form.reset();
+      } else {
+        showFormMessage(
+          'Error sending message. Please try again or contact us directly via WhatsApp.',
+          'error'
+        );
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
       showFormMessage(
-        'Thank you for your message! I will get back to you shortly.',
-        'success'
+        'Error sending message. Please try WhatsApp: +92 314 9663093',
+        'error'
       );
-      form.reset();
+    } finally {
       submitBtn.innerHTML = originalText;
       submitBtn.disabled = false;
-    }, 1500);
+    }
   });
 }
 
