@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ali4634.github.io/ali-software-studio/sitemap.xml
+
+# Disallow sensitive directories if any
+# Disallow: /private/
+# Disallow: /admin/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
