@@ -1813,7 +1813,167 @@ ul {
   border-width: 0;
 }
 
-/* ========== SELECTION STYLING ========== */
+/* ========== SCREENSHOT IN HERO PHONE ========== */
+.app-screen-real {
+  background: transparent;
+}
+
+.screen-shot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ========== PROMO BANNER ========== */
+.promo-banner {
+  padding: 40px 0;
+  background: var(--primary-lighter);
+}
+
+.banner-link {
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+}
+
+.banner-link:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.banner-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ========== APP SCREENSHOTS GALLERY ========== */
+.app-shots {
+  margin-top: 70px;
+}
+
+.app-shots-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.app-shots-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-shots-title i {
+  color: var(--gold);
+}
+
+.app-shots-subtitle {
+  color: var(--text-light);
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.app-shots-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.app-shots-nav button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  background: var(--white);
+  color: var(--primary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-shots-nav button:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.app-shots-track {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 4px 24px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.app-shots-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.app-shots-track::-webkit-scrollbar-track {
+  background: var(--light-gray);
+  border-radius: 4px;
+}
+
+.app-shots-track::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.shot-card {
+  flex: 0 0 auto;
+  width: 200px;
+  aspect-ratio: 1 / 2;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  scroll-snap-align: start;
+  background: var(--primary-dark);
+  transition: var(--transition);
+}
+
+.shot-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.shot-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.app-shots-cta {
+  text-align: center;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .app-shots-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .app-shots-title {
+    font-size: 1.25rem;
+  }
+  .shot-card {
+    width: 150px;
+  }
+}
 ::selection {
   background: var(--gold);
   color: var(--dark);

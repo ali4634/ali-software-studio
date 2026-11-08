@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initBackToTop();
   initSmoothScroll();
+  initShotsGallery();
 });
 
 // ========== LOADING SCREEN ==========
@@ -329,6 +330,27 @@ function initSmoothScroll() {
         });
       }
     });
+  });
+}
+
+// ========== APP SCREENSHOTS GALLERY ==========
+function initShotsGallery() {
+  const track = document.getElementById('shots-track');
+  if (!track) return;
+
+  const prev = document.getElementById('shots-prev');
+  const next = document.getElementById('shots-next');
+  const step = () => {
+    const card = track.querySelector('.shot-card');
+    return card ? card.offsetWidth + 18 : 220;
+  };
+
+  prev.addEventListener('click', () => {
+    track.scrollBy({ left: -step(), behavior: 'smooth' });
+  });
+
+  next.addEventListener('click', () => {
+    track.scrollBy({ left: step(), behavior: 'smooth' });
   });
 }
 
